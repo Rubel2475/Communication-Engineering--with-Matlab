@@ -51,3 +51,16 @@ for j = 1:sample_per_bit:length(y)-1;
 endfor;
 disp(signal_decoded);
 
+%{
+%Another technique for Demodulation
+pre = 1;
+for j=0:total_bits-1
+    if y(j*sample_per_bit+1)==pre
+      demodulated_data(j+1) = 0;
+    else
+      demodulated_data(j+1) = 1;
+      pre=-pre;
+    endif
+endfor
+demodulated_data
+%}
